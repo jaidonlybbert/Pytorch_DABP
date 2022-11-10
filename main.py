@@ -5,7 +5,7 @@ import mnistm
 import model
 from utils import get_free_gpu
 
-save_name = 'omg'
+save_name = 'third_run'
 
 
 def main():
@@ -13,14 +13,14 @@ def main():
     target_train_loader = mnistm.mnistm_train_loader
 
     if torch.cuda.is_available():
-        get_free_gpu()
+        #get_free_gpu()
         print('Running GPU : {}'.format(torch.cuda.current_device()))
         encoder = model.Extractor().cuda()
         classifier = model.Classifier().cuda()
         discriminator = model.Discriminator().cuda()
 
-        train.source_only(encoder, classifier, source_train_loader, target_train_loader, save_name)
-        train.dann(encoder, classifier, discriminator, source_train_loader, target_train_loader, save_name)
+        train.source_only(encoder, classifier, source_train_loader, target_train_loader, "source_only_2")
+        train.dann(encoder, classifier, discriminator, source_train_loader, target_train_loader, "dann_2")
 
     else:
         print("There is no GPU -_-!")

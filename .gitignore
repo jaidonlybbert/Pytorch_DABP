@@ -1,0 +1,6 @@
+venv
+__pycache__
+data
+trained_models
+saved_plot
+tmp
